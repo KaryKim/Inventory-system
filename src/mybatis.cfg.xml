@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<mappers>
+		<!-- 将我们写好的sql一定要映射到全局配置文件中 -->
+		<mapper resource="com/ll/entity/Admin.mapper.xml" />
+			<mapper resource="com/ll/entity/OutStorageMerchandise.mapper.xml" />
+			<mapper resource="com/ll/entity/InStorageMerchandise.mapper.xml" />
+	</mappers>
+</configuration>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ll.dao.InStorageMerchandiseInterface">
+
+	<insert id="inStorage" parameterType="com.ll.entity.InStorageMerchandise"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into
+		in_storage_merchandise(name,manufacturer,model,specification,quantity,date,time,fromunit,zl)
+		values(#{name},#{manufacturer},#{model},#{specification},#{quantity},#{date},#{time},#{fromunit},#{zl})
+	</insert>
+	<select id="queryInStorageByDate" resultType="com.ll.entity.InStorageMerchandise">
+		select * from
+		in_storage_merchandise where date=#{date}
+	</select>
+	<select id="queryInStorageByName" resultType="com.ll.entity.InStorageMerchandise">
+		select * from
+		in_storage_merchandise where name like #{name}
+	</select>
+	<select id="queryInStorageByzhonglei" resultType="com.ll.entity.InStorageMerchandise">
+		select * from
+		in_storage_merchandise where zl like #{zl}
+	</select>
+	<select id="queryInStorageByMonth" resultType="com.ll.entity.InStorageMerchandise">
+		select * from
+		in_storage_merchandise where date between #{param1} and #{param2}
+	</select>
+</mapper>

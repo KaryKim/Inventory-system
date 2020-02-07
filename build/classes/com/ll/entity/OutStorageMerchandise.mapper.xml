@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ll.dao.OutStorageMerchandiseInterface">
+
+	<!-- public boolean outStorage(OutStorageMerchandise outStorageMerchandise); 
+		public boolean inStorage(InStorageMerchandise inStorageMerchandise); -->
+	<insert id="outStorage" parameterType="com.ll.entity.OutStorageMerchandise"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into
+		out_storage_merchandise(name,manufacturer,model,specification,quantity,date,time,tounit,zl)
+		values(#{name},#{manufacturer},#{model},#{specification},#{quantity},#{date},#{time},#{tounit},#{zl})
+	</insert>
+
+	<select id="queryOutStorageByDate" resultType="com.ll.entity.OutStorageMerchandise">
+		select * from
+		out_storage_merchandise where date=#{date}
+	</select>
+	<select id="queryOutStorageByName" resultType="com.ll.entity.OutStorageMerchandise">
+		select * from
+		out_storage_merchandise where name like #{name}
+	</select>
+	<select id="queryOutStorageByzhonglei" resultType="com.ll.entity.OutStorageMerchandise">
+		select * from
+		out_storage_merchandise where  zl like#{zl}
+	</select>
+		<select id="queryOutStorageByMonth" resultType="com.ll.entity.OutStorageMerchandise">
+		select * from
+		out_storage_merchandise where date between #{param1} and #{param2}
+	</select>
+</mapper>
